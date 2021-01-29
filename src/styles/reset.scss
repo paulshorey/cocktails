@@ -1,0 +1,35 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: underline;
+  color: currentColor;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/*
+ * Styles (would usually go in their own file)
+ */
+.x65 {
+  display: inline-block;
+  transform: scale(0.65);
+}
+.x75 {
+  display: inline-block;
+  transform: scale(0.75);
+}
+.x85 {
+  display: inline-block;
+  transform: scale(0.85);
+}
