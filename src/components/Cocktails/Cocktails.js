@@ -66,6 +66,12 @@ class Cocktails extends React.Component {
                         )}
                       </span>
                     )}
+                    {!this.state.orderBy && col.key === "strDrink" && (
+                      <span className="top_sort">
+                        <span className="icon-caret-down-solid" />
+                        <span className="icon-caret-up-solid" />
+                      </span>
+                    )}
                     {/* text after last cell */}
                     {ci === tableModel.columns.length - 1 && (
                       <a className="top_etc" href="https://github.com/paulshorey/cocktails" target="_blank">

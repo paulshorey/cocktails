@@ -56,9 +56,9 @@ export default class {
               orWhere += `strIngredient${n}="${value}" `;
             }
             where += `(${orWhere})`;
-            // } else if (value === "Cocktail" || value === "Ordinary Drink") {
-            //   // special case: combine redundant categories
-            //   where += `(${column}="Cocktail" OR ${column}="Ordinary Drink")`;
+          } else if (value === "Cocktail" || value === "Ordinary Drink") {
+            // special case: combine redundant categories
+            where += `(${column}="Cocktail" OR ${column}="Ordinary Drink")`;
           } else {
             // normal columnName=equalsValue
             where += `${column}="${value}" `;
@@ -100,11 +100,11 @@ export default class {
         label: "category",
         type: "list",
         value: function (row) {
-          // if (row.strCategory === "Ordinary Drink") {
-          //   return ["Cocktail"];
-          // } else {
-          return [row.strCategory];
-          // }
+          if (row.strCategory === "Ordinary Drink") {
+            return ["Cocktail"];
+          } else {
+            return [row.strCategory];
+          }
         }
       },
       {
