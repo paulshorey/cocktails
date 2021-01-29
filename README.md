@@ -8,9 +8,11 @@
 
 This was based on my previous React experiment, which I used to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API. Check it out: https://dogs.paulshorey.com
 
-## Notes and issues:
+## Todo:
 
-**Needs more testing (barely started), more features (user-specify which columns to show/hide).**
+* pagination (or infinite scroll)
+* more testing (barely started)
+* more features (user-specify which columns to show/hide)
 
 ## Testing:
 
