@@ -1,6 +1,7 @@
 # Discover new cocktails. Browse by ingredients or tags.
 
 ### https://cocktails.paulshorey.com
+
 (deployed to Vercel)
 
 # Background
@@ -9,13 +10,14 @@ This was based on my previous React experiment, which I used to practice NextJS 
 
 ## Notes and issues:
 
-> This is not finished. Needs testing, more features.
+**Needs more testing (barely started), more features (user-specify which columns to show/hide).**
 
 ## Testing:
 
 This uses my experimental end-to-end testing framework, run by Jest + Pupeeteer. It's more useful (compared to traditional unit tests) in more complex projects, like my https://dogs.paulshorey.com, which has server-side-rendering of a lot of data from many API endpoints. However, I thought it would be interesting to include here as well.
 
 ### Do **`npm run test`** when adding/editing tests
+
 **When developing the app, just `git commit` the changes.** Testing is integrated into the CI process. The tests will automatically run. If the tests fail, the commit will also fail.
 
 1. First, the script runs **lint**, **build**, then starts serving the app at port **:9754**.
@@ -24,6 +26,7 @@ This uses my experimental end-to-end testing framework, run by Jest + Pupeeteer.
 4. If any tests fail (including the initial `lint`), you will see instructions about what needs to be fixed. If this was triggered by a `git commit`, it will not be allowed to execute until you fix the tests and run `git commit` again.
 
 This uses "husky" to add "pre-commit" or other hooks:
+
 ```
 "husky": {
   "hooks": {
@@ -34,6 +37,7 @@ This uses "husky" to add "pre-commit" or other hooks:
 ```
 
 Helper scripts used by `npm run test`:
+
 ```
 "test_start_server": "next start -p 9754 &",
 "test_run_tests": "jest --verbose || npm run test_stop_server",
