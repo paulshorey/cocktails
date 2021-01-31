@@ -96,6 +96,23 @@ export default class {
         value: (row) => row.strDrink
       },
       {
+        key: "ingredients",
+        label: "ingredients",
+        type: "list",
+        /**
+         * Will generate a list of "tags", like for a blog, except here it's ingredients in the cocktail.
+         * @param row {object} - from table collection
+         * @returns {array}
+         */
+        value: function (row) {
+          let all_set = new Set();
+          for (let i = 1; i <= 15; i++) {
+            if (row[`strIngredient${i}`]) all_set.add(row[`strIngredient${i}`]);
+          }
+          return [...all_set];
+        }
+      },
+      {
         key: "strCategory",
         label: "category",
         type: "list",
@@ -122,23 +139,6 @@ export default class {
         value: function (row) {
           return [row.strAlcoholic];
           // return [row[this.key] === "Alcoholic" ? "yes" : "no"];
-        }
-      },
-      {
-        key: "ingredients",
-        label: "ingredients",
-        type: "list",
-        /**
-         * Will generate a list of "tags", like for a blog, except here it's ingredients in the cocktail.
-         * @param row {object} - from table collection
-         * @returns {array}
-         */
-        value: function (row) {
-          let all_set = new Set();
-          for (let i = 1; i <= 15; i++) {
-            if (row[`strIngredient${i}`]) all_set.add(row[`strIngredient${i}`]);
-          }
-          return [...all_set];
         }
       }
     ]

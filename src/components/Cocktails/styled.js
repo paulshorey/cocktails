@@ -45,7 +45,7 @@ export const Table = styled.div`
   }
   .row {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 6fr;
+    grid-template-columns: 1fr 2fr 6fr 1fr 2fr 1fr;
     margin-top: 0.75rem;
     @media (max-width: 700px) {
       display: block;
