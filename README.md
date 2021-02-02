@@ -1,8 +1,8 @@
 # Discover new cocktails. Browse by ingredients or tags.
 
-### https://cocktails.paulshorey.com
+### https://original.paulshorey.com
 
-(deployed to Vercel)
+**(new version is at https://cocktails.paulshorey.com)**
 
 # Background
 
