@@ -6,7 +6,9 @@ import Tag from "src/components/Tag/Tag";
 export default function ({ row }) {
   return (
     <ResultStyled className="Result">
-      <Image className={"image"} width={90} height={90} src={row.strDrinkThumb} alt={row.strDrink} />
+      <span className={"image loading_gradient_animation"}>
+        <Image width={90} height={90} src={row.strDrinkThumb} alt={row.strDrink} />
+      </span>
 
       <h3 className={"title"}>{row.strDrink}</h3>
 

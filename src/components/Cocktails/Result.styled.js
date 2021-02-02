@@ -12,7 +12,7 @@ export default styled.section`
     font-size: 1rem;
     font-weight: 600;
   }
-  img {
+  .image {
     border-radius: 5px;
     box-shadow: 0 1px hsla(0, 0%, 79%);
   }
