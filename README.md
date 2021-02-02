@@ -1,12 +1,4 @@
-# Discover new cocktails. Browse by ingredients or tags.
-
-### https://original.paulshorey.com
-
-**(new version is at https://cocktails.paulshorey.com)**
-
-# Background
-
-This was based on my previous React experiment, which I used to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API. Check it out: https://dogs.paulshorey.com
+# Discover new cocktails. Filter and sort by ingredients or tags.
 
 ## Todo:
 
