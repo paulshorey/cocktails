@@ -6,15 +6,22 @@
 
 # Background
 
-This was based on a [React SSR experiment](https://dogs.paulshorey.com) I did to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API.
+- This was the result of a coding challenge for a job. I was provided a SQL backup, to see what kind of app could be made of it pretty quickly. Sorting, filtering, UI. I spent a while on this because I wanted to try some different techniques. It was great practice, and a lot of fun to make!
+- This was based on a [React SSR experiment](https://dogs.paulshorey.com) I did to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API.
 
 ## Todo:
 
 - pagination (or infinite scroll)
+- fix git hooks
+
+## Quirks:
+
+- Uses an unusual architecture for one of the components. See **`src/components/Cocktails`**. [ABOUT.md](src/components/Cocktails/ABOUT.md)
+- Data is imported from a SQL backup, into a purely Front-End JavaScript package [alasql](https://github.com/agershun/alasql). You can query this "in-browser database" using standard SQL. See it in action: **`src/data/cocktails.js`**.
 
 ## Testing:
 
-This uses my experimental end-to-end testing framework, run by Jest + Pupeeteer. It's more useful (compared to traditional unit tests) in more complex projects, like my https://dogs.paulshorey.com, which has server-side-rendering of a lot of data from many API endpoints. However, I thought it would be interesting to include here as well.
+This uses a new end-to-end testing technique, run by Jest + Pupeeteer. It's more useful (compared to traditional unit tests) for more complex projects like my https://dogs.paulshorey.com, which gets a lot of data from many API data, and server-side-renders them into dynamic route urls. However, I thought it would be beneficial to include it here as well. End-to-end tests are very fast to write and have the benefit of testing the app exactly as the visitor will see it.
 
 ### Do **`npm run test`** when adding/editing tests
 
@@ -25,7 +32,7 @@ This uses my experimental end-to-end testing framework, run by Jest + Pupeeteer.
 3. Whether tests succeed or fail, the ":9754" server is stopped, so it be started again next time.
 4. If any tests fail (including the initial `lint`), you will see instructions about what needs to be fixed. If this was triggered by a `git commit`, it will not be allowed to execute until you fix the tests and run `git commit` again.
 
-This uses "husky" to add "pre-commit" or other hooks:
+**This uses "husky" to add "pre-commit" or other hooks:**
 
 ```
 "husky": {
@@ -43,5 +50,3 @@ Helper scripts used by `npm run test`:
 "test_run_tests": "jest --verbose || npm run test_stop_server",
 "test_stop_server": "kill -9 $(lsof -i TCP:9754 | grep LISTEN | awk '{print $2}')"
 ```
-
-> **tests are not finished (just started)**
