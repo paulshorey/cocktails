@@ -1,5 +1,4 @@
 import styled from "styled-components";
 
-export const Layout = styled.div`
-  
+export default styled.div`
 `;

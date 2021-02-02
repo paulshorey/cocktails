@@ -1,20 +1,4 @@
-async function click_and_wait(page, selector) {
-  return new Promise(async (resolve) => {
-    try {
-      let response = await Promise.all([
-        page.waitFor(2000),
-        // page.waitForNavigation(), // The promise resolves after navigation has finished
-        page.click(selector) // Clicking the link will indirectly cause a navigation
-      ]);
-      resolve(response);
-    } catch (e) {
-      console.error(e);
-      resolve(false);
-    }
-  });
-}
-
-describe("Home page", () => {
+describe("Cocktails", () => {
   let innerText = "";
 
   beforeAll(async () => {
@@ -22,32 +6,72 @@ describe("Home page", () => {
     innerText = await page.evaluate(() => document.body.textContent);
   });
 
-  it('should be titled "Cocktail Recipes"', async () => {
-    await expect(page.title()).resolves.toMatch("Cocktail Recipes");
+  it('by default, 4th item should be Negroni', async () => {
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Negroni");
   });
 
-  it("should contain Negroni", async () => {
-    expect(innerText).toContain("Negroni");
+  it(`filter by ingredients`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="filterByIngredients"]/*[contains(., 'Amaretto')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Amaretto Mist");
   });
 
-  it("should contain Campari", async () => {
-    expect(innerText).toContain("Campari");
+  it(`filter by ingredients - click again to reset`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="filterByIngredients"]/*[contains(., 'Amaretto')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Negroni");
   });
 
-  // it("should go to breed page when clicked", async () => {
-  //   // click and wait to load next page
-  //   await click_and_wait(page, "main section article:nth-child(4) h3");
-  //   // ok, page loaded
-  //   innerText = await page.evaluate(() => document.body.textContent);
-  //   // expect(innerText).toContain('curly retriever')
-  //   expect(innerText).toContain("back to all dogs");
-  // });
+  it(`filter by tag: New Era Drinks`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="filterByTags"]/*[contains(., 'New Era Drinks')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Dirty Martini");
+  });
 
-  // it("should go to sub-breed page when clicked", async () => {
-  //   // click and wait to load next page
-  //   await click_and_wait(page, "main h3");
-  //   // ok, page loaded
-  //   innerText = await page.evaluate(() => document.body.textContent);
-  //   expect(innerText).toContain("back to all dogs");
-  // });
+  it(`filter by tag: Non alcoholic`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="filterByTags"]/*[contains(., 'Non alcoholic')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Bora Bora");
+  });
+
+  it(`sort by name first click: ascending`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="sortBy"]/*[contains(., 'name')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Apello");
+  });
+
+  it(`sort by name second click: descending`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="sortBy"]/*[contains(., 'name')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Thai Iced Coffee");
+  });
+
+  it(`sort by name third click: back to unsorted`, async () => {
+    const [clickOn] = await page.$x(`//*[@id="sortBy"]/*[contains(., 'name')]`);
+    if (clickOn) {
+      await clickOn.click();
+    }
+    let title = await page.evaluate(() => document.querySelector('.Result:nth-child(4) .title').innerText );
+    await expect(title).toBe("Bora Bora");
+  });
+
 });

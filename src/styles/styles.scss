@@ -1,0 +1,24 @@
+.x65 {
+  display: inline-block;
+  transform: scale(0.65);
+}
+.x75 {
+  display: inline-block;
+  transform: scale(0.75);
+}
+.x85 {
+  display: inline-block;
+  transform: scale(0.85);
+}
+
+a,
+.link,
+.clickable,
+button {
+  cursor: pointer;
+}
+
+.content {
+  margin-left: 0.67rem;
+  margin-right: 0.67rem;
+}

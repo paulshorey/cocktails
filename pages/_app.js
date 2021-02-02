@@ -1,6 +1,8 @@
 import React from "react";
 import "src/styles/reset.scss";
+import "src/styles/styles.scss";
 import Head from "next/head";
+
 export default function App({ Component, pageProps }) {
   return (
     <>
