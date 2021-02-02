@@ -22,4 +22,7 @@ export default styled.span`
   &:last-child .comma {
     display: none;
   }
+  sup {
+    padding: 0 0 0 0.1rem;
+  }
 `;
