@@ -17,7 +17,7 @@
 ## Quirks:
 
 - Uses an unusual architecture for one of the components. See **`src/components/Cocktails`**. [ABOUT.md](src/components/Cocktails/ABOUT.md)
-- Data is imported from a SQL backup, into a purely Front-End JavaScript package [alasql](https://github.com/agershun/alasql). You can query this "in-browser database" using standard SQL. See it in action: **`src/data/cocktails.js`**.
+- Data is imported from a SQL backup, into a purely Front-End JavaScript "in-browser database" [alasql](https://github.com/agershun/alasql). You can query it using standard SQL. See the abstraction in: **`src/data/cocktails.js`** line 100.
 
 ## Testing:
 
