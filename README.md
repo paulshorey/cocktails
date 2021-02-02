@@ -6,13 +6,11 @@
 
 # Background
 
-This was based on my previous React experiment, which I used to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API. Check it out: https://dogs.paulshorey.com
+This was based on a [React SSR experiment](https://dogs.paulshorey.com) I did to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API.
 
 ## Todo:
 
-* pagination (or infinite scroll)
-* more testing (barely started)
-* more features (user-specify which columns to show/hide)
+- pagination (or infinite scroll)
 
 ## Testing:
 
