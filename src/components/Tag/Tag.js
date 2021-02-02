@@ -5,7 +5,7 @@ const Tag = function ({ value, active = false, onClick }) {
   return (
     <TagStyled onClick={onClick} className={"Tag" + (active ? " active " : "")}>
       <span className="value">{value}</span>
-      {!!active && <sup>x</sup>}
+      {!!active && <sup className="x">x</sup>}
       <span className="comma">,&nbsp;</span>
     </TagStyled>
   );

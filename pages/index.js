@@ -4,6 +4,7 @@ import CocktailsPage from "src/components/Cocktails";
 import CocktailsClass from "src/data/cocktails";
 const cocktailsDb = new CocktailsClass();
 import Head from "next/head";
+
 export default function () {
   return (
     <PageLayout>

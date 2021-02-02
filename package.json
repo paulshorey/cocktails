@@ -39,6 +39,7 @@
     "test_start_server": "next start -p 9754 &",
     "test_run_tests": "jest --verbose || npm run test_stop_server",
     "test_stop_server": "kill -9 $(lsof -i TCP:9754 | grep LISTEN | awk '{print $2}')",
+
     "test": "npm run build && npm run test_start_server && npm run test_run_tests && npm run test_stop_server"
   }
 }

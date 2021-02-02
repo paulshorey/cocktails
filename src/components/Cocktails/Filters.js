@@ -1,5 +1,6 @@
 import FiltersStyled from "./Filters.styled";
-import Tag from "src/components/Tag/Tag";
+import Tag from "src/components/Tag";
+import SelectEntries from "./SelectEntries";
 export default function () {
   return (
     <FiltersStyled className="content">
@@ -42,44 +43,51 @@ export default function () {
           );
         })}
       </section>
-      <section id="filterByTags">
-        <b>Filter by Tags: </b>
-        {this.props.cocktailsDb.allOtherTags().map(([value, columnName]) => (
-          <Tag
-            className={"Tag"}
-            key={value}
-            value={value}
-            active={!!this.state.tags[value]}
-            onClick={() => {
-              if (!this.state.tags[value]) {
-                // remove other tags except the one being added
-                this.other_tag(value, columnName);
-              } else {
-                // remove all tags other than ingredients
-                this.remove_other_tags(columnName);
-              }
-            }}
-          />
-        ))}
-      </section>
-      <section id="filterByIngredients">
-        <b>Filter by Ingredients: </b>
-        {this.props.cocktailsDb.allIngredientsTags().map(([value, columnName]) => (
-          <Tag
-            className="Tag"
-            key={value}
-            value={value}
-            active={!!this.state.tags[value]}
-            onClick={() => {
-              if (!!this.state.tags[value]) {
-                this.remove_tag_by_value(value, columnName);
-              } else {
-                this.add_tag(value, columnName);
-              }
-            }}
-          />
-        ))}
-      </section>
+      <div id="filterBy">
+        <SelectEntries
+          onClick={([value, columnName]) => {
+            if (!!this.state.tags[value]) {
+              this.remove_tag_by_value(value, columnName);
+            } else {
+              this.add_tag(value, columnName);
+            }
+          }}
+          entries={this.props.cocktailsDb.allOtherTags()}
+          selected={this.state.tags}
+          title="Filter by Tag"
+        />
+        <SelectEntries
+          onClick={([value, columnName]) => {
+            if (!!this.state.tags[value]) {
+              this.remove_tag_by_value(value, columnName);
+            } else {
+              this.add_tag(value, columnName);
+            }
+          }}
+          entries={this.props.cocktailsDb.allIngredientsTags()}
+          selected={this.state.tags}
+          title="Filter by Ingredients"
+        />
+        {Object.entries(this.state.tags).map((entry) => {
+          console.log("entry", entry);
+          let [value, columnName] = entry;
+          return (
+            <Tag
+              className="Tag"
+              key={value}
+              value={value}
+              active={!!this.state.tags[value]}
+              onClick={() => {
+                if (!!this.state.tags[value]) {
+                  this.remove_tag_by_value(value, columnName);
+                } else {
+                  this.add_tag(value, columnName);
+                }
+              }}
+            />
+          );
+        })}
+      </div>
     </FiltersStyled>
   );
 }

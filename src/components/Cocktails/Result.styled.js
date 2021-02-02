@@ -13,6 +13,8 @@ export default styled.section`
     font-weight: 600;
   }
   .image {
+    display: inline-block;
+    overflow: hidden;
     border-radius: 5px;
     box-shadow: 0 1px hsla(0, 0%, 79%);
   }
@@ -20,9 +22,7 @@ export default styled.section`
     text-align: center;
     padding: 0.5rem;
   }
-  .Tag {
-    sup {
-      display:none;
-    }
+  .x {
+    display: none;
   }
 `;
