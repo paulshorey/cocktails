@@ -1,13 +1,6 @@
 # Discover new cocktails. Browse by ingredients or tags.
 
-### https://cocktails.paulshorey.com
-
-(deployed to Vercel)
-
-# Background
-
-- This was the result of a coding challenge for a job. I was provided a SQL backup, to see what kind of app could be made of it pretty quickly. Sorting, filtering, UI. I spent a while on this because I wanted to try some different techniques. It was great practice, and a lot of fun to make!
-- This was based on a [React SSR experiment](https://dogs.paulshorey.com) I did to practice NextJS server-side-generated dynamic routes and functional testing. That one uses HTTP calls to the awesome [dog.ceo](https://dog.ceo) API.
+### Visit: https://cocktails.paulshorey.com
 
 ## Todo:
 
