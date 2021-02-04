@@ -6,7 +6,10 @@ export default function () {
         {/* text before first cell */}
         <span className="top_logo">
           <span className="icon-cocktail-solid" />
-          <span> Cocktails</span>
+          <a href="https://www.thecocktaildb.com/" target="_blank">
+            {" "}
+            Cocktails DB
+          </a>
         </span>
         {/* text after last cell */}
         <a className="top_etc" href="https://github.com/paulshorey/cocktails" target="_blank">

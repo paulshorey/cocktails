@@ -8,7 +8,8 @@ class Cocktails extends React.Component {
     this.state = {
       orderBy: "", // ORDER BY ___ asc
       orderByDesc: false, // ORDER BY columnName ___
-      tags: {} // dictionary of values to find in columns {[value]:"columnName",...}
+      tags: { "Orange juice": "strIngredients" } // dictionary of values to find in columns {[value]:"columnName",...}
+      // Example: { "Orange juice": "strIngredients" }
       // "tags" are actually "filters", WHERE columnName=value
       // EXCEPTION:
       // To filter by any of the ingredients columns, use "strIngredients" -

@@ -163,14 +163,14 @@ export default class {
   /**
    * Ingredients in row
    * @param row {object} one row from table
-   * @returns {array} list of strings
+   * @returns {array} list of tags (tuples), where each tag is ["value","columnName"]
    */
-  rowIngredients = (row) => {
-    let all_set = new Set();
+  rowIngredientsTags = (row) => {
+    let tags = {};
     for (let i = 1; i <= 15; i++) {
-      if (row[`strIngredient${i}`]) all_set.add(row[`strIngredient${i}`]);
+      if (row[`strIngredient${i}`]) tags[row[`strIngredient${i}`]] = "strIngredients";
     }
-    return [...all_set];
+    return tags;
   };
 
   /**
@@ -180,7 +180,7 @@ export default class {
    */
   rowTags = (row) => {
     let tags = [];
-    for (let ing of this.rowIngredients(row)) {
+    for (let ing in this.rowIngredientsTags(row)) {
       tags.push([ing, "strIngredients"]);
     }
     for (let columnName of ["strCategory", "strIBA"]) {

@@ -13,11 +13,11 @@ export default function ({ row }) {
       <h3 className={"title"}>{row.strDrink}</h3>
 
       <div className={"tags"}>
-        {this.props.cocktailsDb.rowTags(row).map(([value, columnName]) => (
+        {Object.entries(this.props.cocktailsDb.rowIngredientsTags(row)).map(([value, columnName]) => (
           <Tag
             key={value}
             value={value}
-            active={!!this.state.tags[value]}
+            active={!!this.state.tags[value] || this.state.orderBy === columnName}
             onClick={() => {
               if (!!this.state.tags[value]) {
                 this.remove_tag_by_value(value, columnName);

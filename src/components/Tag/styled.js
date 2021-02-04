@@ -23,6 +23,8 @@ export default styled.span`
     display: none;
   }
   .x {
-    padding: 0 0 0 0.1rem;
+    padding: 0 0 0 0.2rem;
+    display: none;
+    transform: scale(1.4, 1.125);
   }
 `;
