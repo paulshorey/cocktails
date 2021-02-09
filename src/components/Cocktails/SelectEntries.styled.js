@@ -44,8 +44,9 @@ export default styled.div`
       }
       .option {
         display: block;
-        margin: 0.5rem 0.25rem;
+        padding: 0.5rem 0.25rem;
         min-width: 240px;
+        background: white;
       }
     }
   }
