@@ -36,10 +36,9 @@
     "serve": "next start",
     "build": "next build",
     "export": "next export",
-    "test_start_server": "next start -p 9754 &",
-    "test_run_tests": "jest --verbose || npm run test_stop_server",
-    "test_stop_server": "kill -9 $(lsof -i TCP:9754 | grep LISTEN | awk '{print $2}')",
-
-    "test": "npm run build && npm run test_start_server && npm run test_run_tests && npm run test_stop_server"
+    "test_dev": "jest --watch --verbose",
+    "test_build": "npm run build && npm run test_build_before && USE_PORT='9753' jest --verbose || npm run force_stop_server && npm run force_stop_server",
+    "test_build_before": "next start -p 9753 &",
+    "force_stop_server": "kill -9 $(lsof -i TCP:9753 | grep LISTEN | awk '{print $2}')"
   }
 }
